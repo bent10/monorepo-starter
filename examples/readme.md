@@ -18,6 +18,7 @@ First step is to make sure you've got the required dependencies installed. After
 {
   "devDependencies": {
     "dts-gen": "^0.6.0",
+    "mkdirp": "^1.0.4",
     "terser": "^5.7.2"
   }
 }
@@ -64,6 +65,7 @@ First step is to make sure you've got the required dependencies installed. After
     "@babel/preset-env": "^7.15.4",
     "babel-jest": "^27.1.0",
     "dts-gen": "^0.6.0",
+    "mkdirp": "^1.0.4",
     "terser": "^5.7.2"
   }
 }

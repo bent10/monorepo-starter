@@ -26,7 +26,7 @@
     "build": "npm-run-all build:*",
     "build:terser": "for file in src/*.js; do terser ${file} -m -c -o dist/`basename ${file}` && echo \"terser ${file} to dist\"; done;",
     "build:types": "dts-gen -m \"@example/basic\" -f dist/types/index.d.ts -o",
-    "prebuild": "mkdir -p dist/types",
+    "prebuild": "mkdirp dist/types",
     "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",
     "prettier": "prettier --write . --ignore-path \"../../.prettierignore\"",
     "lint": "eslint src test --cache --cache-location .cache/.eslintcache --report-unused-disable-directives",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "dts-gen": "^0.6.0",
+    "mkdirp": "^1.0.4",
     "terser": "^5.7.2"
   }
 }

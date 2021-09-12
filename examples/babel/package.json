@@ -33,7 +33,7 @@
     "build:browser": "cross-env NODE_ENV=browser babel src -d dist/umd --source-maps",
     "build:terser": "for file in dist/umd/*.js; do terser ${file} -m -c -o ${file} && echo \"terser ${file}\"; done;",
     "build:types": "dts-gen -m \"@example/babel\" -f dist/types/index.d.ts -o",
-    "prebuild": "mkdir -p dist/types",
+    "prebuild": "mkdirp dist/types",
     "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",
     "prettier": "prettier --write . --ignore-path \"../../.prettierignore\"",
     "lint": "eslint src test --cache --cache-location .cache/.eslintcache --report-unused-disable-directives",
@@ -48,6 +48,7 @@
     "@babel/preset-env": "^7.15.4",
     "babel-jest": "^27.1.1",
     "dts-gen": "^0.6.0",
+    "mkdirp": "^1.0.4",
     "terser": "^5.7.2"
   }
 }
