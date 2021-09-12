@@ -1,0 +1,41 @@
+{
+  "name": "@example/basic",
+  "description": "A bare-bones example of how to create a “typing-monkey” library",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/monorepo-starter",
+  "homepage": "https://github.com/bent10/monorepo-starter/tree/packages/basic#readme",
+  "bugs": "https://github.com/bent10/monorepo-starter/issues",
+  "license": "MIT",
+  "keywords": [
+    "example",
+    "basic"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md",
+    "license"
+  ],
+  "scripts": {
+    "watch": "nodemon --watch src --exec \"npm-run-all lint build\" --on-change-only",
+    "build": "npm-run-all build:*",
+    "build:terser": "for file in src/*.js; do terser ${file} -m -c -o dist/`basename ${file}` && echo \"terser ${file} to dist\"; done;",
+    "build:types": "dts-gen -m \"@example/basic\" -f dist/types/index.d.ts -o",
+    "prebuild": "mkdir -p dist/types",
+    "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",
+    "prettier": "prettier --write . --ignore-path \"../../.prettierignore\"",
+    "lint": "eslint src test --cache --cache-location .cache/.eslintcache --report-unused-disable-directives",
+    "test": "jest --verbose",
+    "coverage": "c8 -r lcov -r text jest",
+    "clean": "rm -rf .cache coverage dist"
+  },
+  "devDependencies": {
+    "dts-gen": "^0.6.0",
+    "terser": "^5.7.2"
+  }
+}

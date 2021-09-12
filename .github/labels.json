@@ -1,0 +1,45 @@
+[
+  { "name": "🐞 bug", "color": "#F44336" },
+  { "name": "📚 documentation", "color": "#FDD835" },
+  { "name": "✨ enhancement", "color": "#03a9f4" },
+  { "name": "🔙 revert", "color": "#0052cc" },
+  { "name": "🔥 todo", "color": "#311B92" },
+  { "name": "🐙 waiting for release", "color": "#0D47A1" },
+
+  { "name": "duplicate", "color": "#1976D2" },
+  { "name": "help wanted", "color": "#F9A825" },
+  { "name": "invalid", "color": "#e4e669" },
+  { "name": "PR welcome", "color": "#1B5E20" },
+  { "name": "need more info", "color": "#6A1B9A" },
+  { "name": "question", "color": "#C2185B" },
+  { "name": "request for comments", "color": "#BBDEFB" },
+
+  { "name": "hotfix:critical", "color": "#E53935" },
+  { "name": "hotfix:important", "color": "#FB8C00" },
+  { "name": "hotfix:nice-to-have", "color": "#FDD835" },
+  { "name": "hotfix:low", "color": "#039BE5" },
+  { "name": "hotfix:inconvenient", "color": "#c0e0f7" },
+
+  { "name": "status:in-progress", "color": "#4CAF50" },
+  { "name": "status:abandoned", "color": "#CFD8DC" },
+  { "name": "status:could not reproduce", "color": "#CFD8DC" },
+  { "name": "status:duplicate", "color": "#CFD8DC" },
+  { "name": "status:hold", "color": "#CFD8DC" },
+  { "name": "status:invalid", "color": "#CFD8DC" },
+  { "name": "status:stale", "color": "#CFD8DC" },
+  { "name": "status:wontfix", "color": "#CFD8DC" },
+
+  { "name": "pr:chore", "color": "#D7CCC8" },
+  { "name": "pr:docs", "color": "#D7CCC8" },
+  { "name": "pr:feature", "color": "#D7CCC8" },
+  { "name": "pr:fix", "color": "#D7CCC8" },
+  { "name": "pr:performance", "color": "#D7CCC8" },
+  { "name": "pr:refactor", "color": "#D7CCC8" },
+  { "name": "pr:style", "color": "#D7CCC8" },
+  { "name": "pr:test", "color": "#D7CCC8" },
+
+  { "name": "os: browser", "color": "#B2DFDB" },
+  { "name": "os: linux", "color": "#B2DFDB" },
+  { "name": "os: mac", "color": "#B2DFDB" },
+  { "name": "os: windows", "color": "#B2DFDB" }
+]

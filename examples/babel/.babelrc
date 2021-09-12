@@ -1,0 +1,16 @@
+{
+  "env": {
+    "modern": {
+      "presets": ["@babel/preset-modules"]
+    },
+    "legacy": {
+      "presets": [["@babel/preset-env", { "modules": "cjs" }]]
+    },
+    "browser": {
+      "presets": [["@babel/preset-env", { "modules": "umd" }]]
+    },
+    "test": {
+      "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
+    }
+  }
+}

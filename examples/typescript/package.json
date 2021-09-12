@@ -1,0 +1,55 @@
+{
+  "name": "@example/typescript",
+  "description": "A bare-bones example of how to create a library using TypeScript",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/monorepo-starter",
+  "homepage": "https://github.com/bent10/monorepo-starter/tree/packages/typescript#readme",
+  "bugs": "https://github.com/bent10/monorepo-starter/issues",
+  "license": "MIT",
+  "keywords": [
+    "example",
+    "typescript"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "browser": {
+    "./dist/cjs/index.js": "./dist/umd/index.js"
+  },
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md",
+    "license"
+  ],
+  "scripts": {
+    "watch": "nodemon --watch src --ext .js,.ts --exec \"npm-run-all lint build\" --on-change-only",
+    "build": "npm-run-all build:*",
+    "build:types": "tsc --outdir dist/types --declaration --emitDeclarationOnly",
+    "build:legacy": "tsc --outdir dist/cjs --module commonjs",
+    "build:modern": "tsc --outdir dist/esm --module es2015",
+    "build:browser": "tsc --outdir dist/umd --module umd --sourceMap",
+    "build:terser": "for file in dist/umd/*.js; do terser ${file} -m -c -o ${file} && echo \"terser ${file}\"; done;",
+    "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",
+    "prettier": "prettier --write . --ignore-path \"../../.prettierignore\"",
+    "lint": "tsc --noEmit && eslint src test --ext .js,.ts --cache --cache-location .cache/.eslintcache --report-unused-disable-directives",
+    "test": "jest --verbose",
+    "coverage": "c8 -r lcov -r text jest",
+    "clean": "rm -rf .cache coverage dist",
+    "reset": "rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-typescript": "^7.15.0",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "terser": "^5.7.2",
+    "typescript": "^4.4.3"
+  }
+}
