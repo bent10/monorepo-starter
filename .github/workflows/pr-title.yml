@@ -22,4 +22,4 @@ jobs:
         with:
           on-fail-message: "Your PR title doesn't match the required format. The title should be in the conventional commit (https://www.conventionalcommits.org) format. e.g.\n\n```\nchore(plugin-name): add pr title workflow\n```"
           title-regex: '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([\w|,|\-|\|]+\))?(!)?\:\s.*$'
-          github-token: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
