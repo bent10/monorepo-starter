@@ -24,7 +24,7 @@
   "scripts": {
     "watch": "nodemon --watch src --exec \"npm-run-all lint build\" --on-change-only",
     "build": "npm-run-all build:*",
-    "build:terser": "for file in src/*.js; do terser ${file} -m -c -o dist/`basename ${file}` && echo \"terser ${file} to dist\"; done;",
+    "build:terser": "terser src/*.js -m -c -o dist/index.js",
     "build:types": "dts-gen -m \"@example/basic\" -f dist/types/index.d.ts -o",
     "prebuild": "mkdirp dist/types",
     "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",

@@ -32,7 +32,7 @@
     "build:legacy": "tsc --outdir dist/cjs --module commonjs",
     "build:modern": "tsc --outdir dist/esm --module es2015",
     "build:browser": "tsc --outdir dist/umd --module umd --sourceMap",
-    "build:terser": "for file in dist/umd/*.js; do terser ${file} -m -c -o ${file} && echo \"terser ${file}\"; done;",
+    "build:terser": "terser dist/umd/*.js -m -c -o dist/umd/index.js",
     "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",
     "prettier": "prettier --write . --ignore-path \"../../.prettierignore\"",
     "lint": "tsc --noEmit && eslint src test --ext .js,.ts --cache --cache-location .cache/.eslintcache --report-unused-disable-directives",

@@ -33,7 +33,7 @@
     "build:legacy": "cross-env NODE_ENV=legacy babel src -d dist/cjs --extensions .js,.ts",
     "build:modern": "cross-env NODE_ENV=modern babel src -d dist/esm --extensions .js,.ts",
     "build:browser": "cross-env NODE_ENV=browser babel src -d dist/umd --extensions .js,.ts --source-maps",
-    "build:terser": "for file in dist/umd/*.js; do terser ${file} -m -c -o ${file} && echo \"terser ${file}\"; done;",
+    "build:terser": "terser dist/umd/*.js -m -c -o dist/umd/index.js",
     "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",
     "prettier": "prettier --write . --ignore-path \"../../.prettierignore\"",
     "lint": "tsc --noEmit && eslint src test --ext .js,.ts --cache --cache-location .cache/.eslintcache --report-unused-disable-directives",

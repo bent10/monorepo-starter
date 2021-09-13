@@ -31,7 +31,7 @@
     "build:legacy": "cross-env NODE_ENV=legacy babel src -d dist/cjs",
     "build:modern": "cross-env NODE_ENV=modern babel src -d dist/esm",
     "build:browser": "cross-env NODE_ENV=browser babel src -d dist/umd --source-maps",
-    "build:terser": "for file in dist/umd/*.js; do terser ${file} -m -c -o ${file} && echo \"terser ${file}\"; done;",
+    "build:terser": "terser dist/umd/*.js -m -c -o dist/umd/index.js",
     "build:types": "dts-gen -m \"@example/babel\" -f dist/types/index.d.ts -o",
     "prebuild": "mkdirp dist/types",
     "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",
