@@ -35,8 +35,8 @@
     "clean": "rm -rf .cache coverage dist"
   },
   "devDependencies": {
-    "dts-gen": "^0.6.0",
-    "mkdirp": "^1.0.4",
-    "terser": "^5.7.2"
+    "dts-gen": "0.6.0",
+    "mkdirp": "1.0.4",
+    "terser": "5.7.2"
   }
 }
