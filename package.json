@@ -16,7 +16,6 @@
     "template",
     "boilerplate"
   ],
-  "type": "module",
   "workspaces": [
     "packages/*"
   ],
