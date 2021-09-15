@@ -6,7 +6,7 @@
 
 [![GitHub](https://img.shields.io/github/license/bent10/monorepo-starter?style=flat-square)](license)
 
-A monorepo starter template using native NPM workspace
+A monorepo starter template using native NPM workspace 🗂️
 
 - [Features](#features)
 - [Usage](#usage)

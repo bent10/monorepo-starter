@@ -1,6 +1,6 @@
 {
   "name": "monorepo-starter",
-  "description": "Github NPM template for starting monorepo.",
+  "description": "A monorepo starter template using native NPM workspace",
   "version": "0.0.0-development",
   "private": true,
   "author": "Beni Arisandi (https://stilearning.com)",
