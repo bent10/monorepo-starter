@@ -11,13 +11,13 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Usage](#usage)
-  - [Installation `packages/*`](#installation-packages)
-- [Recipes](#recipes)
-- [Roadmap](#roadmap)
-- [Related](#related)
-- [Contributing](#contributing)
-- [Thank you](#thank-you)
+- [<img src=".github/media/logo.svg" alt="Logo" width="520px">](#)
+  - [Usage](#usage)
+    - [Installation `packages/*`](#installation-packages)
+  - [Recipes](#recipes)
+  - [Roadmap](#roadmap)
+  - [Contributing](#contributing)
+  - [Thank you](#thank-you)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -55,11 +55,7 @@ We provide several [package templates](examples). Please install the [required d
 
 ## Roadmap
 
-- Create [boox](docs/roadmap/boox.md) – A zero config CLI tool for building and maintaining Monorepo that implement this `monorepo-starter` template
-
-## Related
-
-- [boox](https://github.com/bent10/boox)
+- Create [boox](https://github.com/bent10/boox) – A zero config CLI tool for building and maintaining Monorepo that implement this `monorepo-starter` template
 
 ## Contributing
 
