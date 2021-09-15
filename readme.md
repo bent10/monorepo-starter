@@ -6,20 +6,31 @@
 
 [![GitHub](https://img.shields.io/github/license/bent10/monorepo-starter?style=flat-square)](license)
 
-> Github NPM template for starting monorepo.
+A monorepo starter template using native NPM workspace
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+- [Features](#features)
+- [Usage](#usage)
+  - [Installation `packages/*`](#installation-packages)
+  - [Available commands](#available-commands)
+- [Tech Stack](#tech-stack)
+- [Recipes](#recipes)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Thank you](#thank-you)
 
-- [<img src=".github/media/logo.svg" alt="Logo" width="520px">](#)
-  - [Usage](#usage)
-    - [Installation `packages/*`](#installation-packages)
-  - [Recipes](#recipes)
-  - [Roadmap](#roadmap)
-  - [Contributing](#contributing)
-  - [Thank you](#thank-you)
+## Features
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+- Fast
+- No fattening! No Yarn, no Lerna, no NX, or others. **Just native NPM!**
+- GitHub auto releases for each package _(after `git push`)_
+- NPM auto publish for each package _(after `git push`)_
+- Auto updates changelog for each package _(after `git push`)_
+- Auto updates dependencies
+- Develop packages with mixed languages in one repository
+- Write your code using the latest syntax
+- UMD, CommonJS, and ESM output format for JavaScript packages
+- Auto generate `*.rtl.css` file for SCSS packages
+- Live playground ready
 
 ## Usage
 
@@ -46,6 +57,43 @@ npm i
 
 We provide several [package templates](examples). Please install the [required dependencies](examples#requirements) based on the _template_ you are using.
 
+### Available commands
+
+```bash
+$ npm run watch       Run watch task for all packages
+$ npm run lint        Run lint for all packages
+$ npm run build       Run build task for all packages
+$ npm run test        Run test for all packages
+$ npm run coverage    Run test coverage for all packages
+$ npm run prettier    Run prettier for `dist` files (ignoring UMD and *.min.* files)
+$ npm run clean       Run clean task for all packages
+$ npm run reset       Run clean task for all packages
+```
+
+You can add `-w` or `--workspace` flag to target for one or more package(s):
+
+```bash
+npm run build -w pkg1 -w pkg2 ...
+```
+
+## Tech Stack
+
+- NodeJS _(core)_
+- ESLint _(core)_
+- Jest _(core)_
+- Prettier _(core)_
+- Renovate _(core)_
+- Babel _(optional)_
+- Typescript _(optional)_
+- SCSS _(optional)_
+- Stylelint _(optional)_
+- Rollup _(optional)_
+- Webpack _(optional)_
+- SSG – using Eleventy _(optional)_
+- HTML validate _(optional)_
+- AVA _(optional)_
+- Semantic release _(optional)_
+
 ## Recipes
 
 - [Automated dependency updates](docs/recipes/setup-renovate.md)
@@ -55,7 +103,8 @@ We provide several [package templates](examples). Please install the [required d
 
 ## Roadmap
 
-- Create [boox](https://github.com/bent10/boox) – A zero config CLI tool for building and maintaining Monorepo that implement this `monorepo-starter` template
+- Add React, Vue, Svelte example template
+- Create [boox](https://github.com/bent10/boox) – A zero config CLI tool for building and maintaining Monorepo that implement this template
 
 ## Contributing
 
@@ -72,10 +121,6 @@ Now you can use `git cz` or just `cz` instead of `git commit` when committing. Y
 ```bash
 git add . && git cz
 ```
-
-👉🏽&nbsp; Need help or advices? Please don't open an issue! Head to [Support form](#) instead.
-
-❤️ &nbsp; this Project? Please consider to [suppor our maintenance and feature development](https://opencollective.com/your-opencolective-account/donate)
 
 ## Thank you
 

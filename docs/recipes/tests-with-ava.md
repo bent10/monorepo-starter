@@ -7,10 +7,9 @@ This template has come with Jest integration as a testing tool. If you want to a
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Replace Jest with AVA](#replace-jest-with-ava)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-  - [Removing Jest](#removing-jest)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Removing Jest](#removing-jest)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
