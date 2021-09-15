@@ -7,9 +7,10 @@ This template has come with Jest integration as a testing tool. If you want to a
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Removing Jest](#removing-jest)
+- [Replace Jest with AVA](#replace-jest-with-ava)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Removing Jest](#removing-jest)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -41,6 +42,8 @@ Merge this config into `your-pkg/package.json` file:
   }
 }
 ```
+
+Please go to [AVA docs](https://github.com/avajs/ava/blob/main/docs/06-configuration.md) for more details configuration.
 
 ## Removing Jest
 
