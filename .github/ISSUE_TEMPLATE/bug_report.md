@@ -1,9 +1,6 @@
 ---
-name: "\U0001F41E Bug Report"
+name: "🐞 Bug Report"
 about: Create a report to help us improve
-title: ""
-labels: ""
-assignees: ""
 ---
 
 <!--
@@ -16,7 +13,7 @@ assignees: ""
 - Plugin Version:
 - Project Version:
 - Device: [e.g Desktop] <!-- choose one of Desktop or Smartphone -->
-- Operating System (or Browser): [e.g. Edge@latest, safary@11]
+- OS@version (or Browser): [e.g. macOS@11.5.2, safary@11]
 - Node And NPM Version: [e.g. 14.17.6 and 6.14.15]
 
 ### Description
