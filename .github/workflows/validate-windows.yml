@@ -1,4 +1,4 @@
-name: Validate project on windows
+name: Validate packages – Windows
 
 on:
   pull_request:
