@@ -76,6 +76,7 @@ First step is to make sure you've got the required dependencies installed. After
 <details><summary>📁 &nbsp; babel-ts</summary><br>
 
 > A bare-bone template of how to create a library using TypeScript with Babel compiler.
+> As a compiler, Babel is quickly than TypeScript. But you should still use `tsc` for code `linter` and to generate `.d.ts` files.
 
 #### Required dependencies
 
