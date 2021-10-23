@@ -23,7 +23,7 @@ npm i -D ava ts-node
 
 ## Configuration
 
-Merge this config into `your-pkg/package.json` file:
+Merge this config into `package.json` file:
 
 ```json
 {
@@ -46,9 +46,7 @@ Please go to [AVA docs](https://github.com/avajs/ava/blob/main/docs/06-configura
 
 ## Removing Jest
 
-💡 You don't need to do this step if you want to use both Jest and AVA.
-
-But if you decide not to use Jest at all, you can remove this config in the `package.json` file in the root folder of your monorepo project:
+You can remove this config in the `package.json` file in the root folder of your monorepo project:
 
 ```json
 {
