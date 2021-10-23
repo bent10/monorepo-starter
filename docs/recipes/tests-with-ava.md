@@ -59,7 +59,7 @@ You can remove this config in the `package.json` file in the root folder of your
 }
 ```
 
-Then uninstall all of Jest packages:
+Then uninstall all of Jest stuff:
 
 ```bash
 npm uninstall jest @types/jest babel-jest
