@@ -37,6 +37,6 @@
   "devDependencies": {
     "dts-gen": "0.6.0",
     "mkdirp": "1.0.4",
-    "terser": "5.9.0"
+    "terser": "5.10.0"
   }
 }
