@@ -14,7 +14,6 @@ A monorepo starter template using native NPM workspace 🗂️
   - [Available commands](#available-commands)
 - [Tech Stack](#tech-stack)
 - [Recipes](#recipes)
-- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Thank you](#thank-you)
 
