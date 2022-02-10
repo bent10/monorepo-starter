@@ -101,11 +101,6 @@ npm run build -w pkg1 -w pkg2 ...
 - [Replace Jest with AVA](docs/recipes/tests-with-ava.md)
 - [Integrating Eleventy](docs/recipes/integrating-eleventy.md)
 
-## Roadmap
-
-- Add React, Vue, Svelte example template
-- Create [boox](https://github.com/bent10/boox) – A zero config CLI tool for building and maintaining Monorepo that implement this template
-
 ## Contributing
 
 ⚡️&nbsp; katchow! We 💛&nbsp; issues.
