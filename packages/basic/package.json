@@ -1,6 +1,6 @@
 {
   "name": "@example/basic",
-  "description": "A bare-bones example of how to create a “typing-monkey” library",
+  "description": "A bare-bones example of how to create a library using TypeScript",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"
@@ -12,9 +12,10 @@
   "license": "MIT",
   "keywords": [
     "example",
-    "basic"
+    "typescript"
   ],
-  "main": "./dist/index.js",
+  "type": "module",
+  "exports": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "files": [
     "dist",
@@ -22,21 +23,19 @@
     "license"
   ],
   "scripts": {
-    "watch": "nodemon --watch src --exec \"npm-run-all lint build\" --on-change-only",
-    "build": "npm-run-all build:*",
-    "build:terser": "terser src/*.js -m -c -o dist/index.js",
-    "build:types": "dts-gen -m \"@example/basic\" -f dist/types/index.d.ts -o",
-    "prebuild": "mkdirp dist/types",
-    "postbuild": "prettier --write dist --ignore-path \"../../.prettierignore\"",
-    "prettier": "prettier --write . --ignore-path \"../../.prettierignore\"",
-    "lint": "eslint src test --cache --cache-location .cache/.eslintcache --report-unused-disable-directives",
-    "test": "jest --verbose",
-    "coverage": "c8 -r lcov -r text jest",
-    "clean": "rm -rf .cache coverage dist"
+    "start": "npm run build && doogu watch",
+    "lint": "doogu lint --types",
+    "build": "doogu build --types",
+    "test": "node --experimental-vm-modules --no-warnings ../../node_modules/jest/bin/jest.js --coverage"
   },
-  "devDependencies": {
-    "dts-gen": "0.6.0",
-    "mkdirp": "1.0.4",
-    "terser": "5.13.1"
+  "dependencies": {},
+  "jest": {
+    "testMatch": [
+      "<rootDir>/test/**/*(*.)@(test).[tj]s"
+    ],
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "clearMocks": true
   }
 }

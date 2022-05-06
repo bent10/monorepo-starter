@@ -4,9 +4,6 @@
 
 As our repo gets bigger, handling the release process can be a pain point and time consuming. We're going to simplify the [GitHub releases](https://help.github.com/articles/about-releases) process using GitHub action, which will take care of the releases when we do `git push` on the monorepo.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 - [Features](#features)
 - [Example workflow](#example-workflow)
   - [Environment Variables](#environment-variables)
@@ -14,8 +11,6 @@ As our repo gets bigger, handling the release process can be a pain point and ti
   - [Setting up workflow file](#setting-up-workflow-file)
 - [Running Tests](#running-tests)
 - [Related](#related)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Features
 
@@ -89,8 +84,11 @@ Create `release.yml` file in the `.github/workflows/` folder, then copy the code
 
 ```yaml
 name: Release
-
 on:
+  repository_dispatch:
+    # curl -v -H "Accept: application/vnd.github.everest-preview+json" -H "Authorization: token ${GH_TOKEN}"
+    # https://api.github.com/repos/username/moduleName/dispatches -d '{ "event_type": "semantic-release" }'
+    types: [semantic-release]
   push:
     branches:
       - main
@@ -104,40 +102,28 @@ jobs:
   release:
     name: Releasing
     runs-on: ubuntu-latest
-
     steps:
-      # https://github.com/actions/checkout
-      - uses: actions/checkout@v2
-
-      # https://github.com/actions/setup-node#v2
-      - uses: actions/setup-node@v2
-
-      - name: We need NPM 7.x to support --workflow
-        run: sudo npm i -g npm@latest
-
-      - run: npm install
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14.17
+      # We need NPM >=7 to support --workflow
+      - run: sudo npm i -g npm@latest
+      - run: npm ci
+      - run: npm run lint
       - run: npm run build
+      - run: npm test
 
       - name: Installing release dependencies
         run: |
-          npm i semantic-release
-          npm i multi-semantic-release
-          npm i @semantic-release/error
-          npm i @semantic-release/commit-analyzer
-          npm i @semantic-release/release-notes-generator
-          npm i @semantic-release/changelog
-          npm i @semantic-release/git
-          npm i @semantic-release/github
-          npm i @semantic-release/npm
-
-      # https://github.com/dhoulb/multi-semantic-release
+          npm i -g multi-semantic-release
+          npm i -g @semantic-release/changelog
+          npm i -g @semantic-release/git
       - name: Semantic release
-        # use `--ignore-packages` to ignore packages on bumping process
-        # npx multi-semantic-release --ignore-packages=packages/a/**,packages/b/**
-        run: npx multi-semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: multi-semantic-release
 ```
 
 ## Running Tests
@@ -145,13 +131,13 @@ jobs:
 To run tests release locally, use the following command:
 
 ```bash
-npx multi-semantic-release --dry-run
+multi-semantic-release --dry-run
 ```
 
-<details><summary>We need to install some modules before running tests! 👇</summary><br>
+<details><summary>We need to install some modules before running tests 👆</summary><br>
 
 ```bash
-npm i semantic-release multi-semantic-release @semantic-release/error @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm
+npm i -g multi-semantic-release @semantic-release/changelog @semantic-release/git
 ```
 
 </details>

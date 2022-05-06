@@ -1,11 +1,11 @@
-# @example/basic
+# @example/typescript
 
 Package description
 
 ## Install
 
 ```
-npm install @example/basic
+npm install @example/typescript
 ```
 
 ## Usage

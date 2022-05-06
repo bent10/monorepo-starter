@@ -1,4 +1,4 @@
-import { sum } from '..'
+import { sum } from '../dist/index.js'
 
 beforeAll(() => {
   /* Runs once before all tests */

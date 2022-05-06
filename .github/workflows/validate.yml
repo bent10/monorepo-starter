@@ -1,5 +1,4 @@
-name: Validate packages
-
+name: Validation
 on:
   pull_request:
     types:
@@ -12,32 +11,27 @@ on:
       - '!main'
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-
+  test:
+    name: Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        node: ['16', '14', '12']
-
-    name: Node v${{ matrix.node }}
-
+        node-version:
+          - 18
+          - 16
+          - 14
+        os:
+          - ubuntu-latest
+          - windows-latest
     steps:
-      # https://github.com/actions/checkout
-      - uses: actions/checkout@v2
-
-      # https://github.com/actions/setup-node#v2
-      - uses: actions/setup-node@v2
-
-      - name: We need NPM 7.x to support --workflow
-        run: sudo npm i -g npm@latest
-
-      - run: npm install
-
-      - name: Lint packages
-        run: npm run lint
-
-      - name: Build packages
-        run: npm run build
-
-      - name: Tests packages
-        run: npm run test
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      # We need NPM >=7 to support --workflow
+      - run: npm i -g npm@latest
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm test

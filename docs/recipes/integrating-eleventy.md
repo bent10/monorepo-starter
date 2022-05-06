@@ -2,18 +2,13 @@
 
 # Integrating eleventy
 
-Sometimes we want to see or test our packages in the browser, or just to create documentation and such. It can be done quickly using eleventy. Here is how it can be done on this monorepo.
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Sometimes we want to see or test our packages in the browser, or just to create documentation and such. It can be done quickly using [eleventy](https://github.com/11ty/eleventy).
 
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Optimizations](#optimizations)
 - [Related](#related)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
 
@@ -37,8 +32,8 @@ Create `.eleventy.js` file in the monorepo project root folder then copy code be
 module.exports = eleventyConfig => {
   return {
     dir: {
-      output: "public",
-      input: "view"
+      input: "view",
+      output: "public"
     }
   }
 }
@@ -51,20 +46,18 @@ Add the following script into `package.json` file:
 ```json
 {
   "scripts": {
-    "start": "npm-run-all --parallel html:watch serve",
-    "serve": "browser-sync public packages --watch --no-notify",
-    "html:watch": "nodemon --watch view --ext .html,.md,.liquid,.js,.json --exec \"npm run html:build\" --on-change-only",
-    "html:build": "eleventy"
+    "serve": "eleventy --serve",
+    "build:html": "eleventy"
   }
 }
 ```
 
 ## Usage
 
-Create `src` folder in the monorepo project root folder and write a simple `src/index.html` or `src/index.md` file then run the following command:
+Create `view` folder in the monorepo project root folder and write a simple `view/index.html` or `view/index.md` file then run the following command:
 
 ```bash
-npm start
+npm run serve
 ```
 
 ## Optimizations
@@ -91,7 +84,7 @@ Add the following script into `package.json` file:
 ```json
 {
   "scripts": {
-    "posthtml:build": "html-validate \"public/{,!(node_modules|coverage)/**/}*.html\""
+    "postbuild:html": "html-validate \"public/{,!(node_modules|coverage)/**/}*.html\""
   }
 }
 ```
