@@ -14,8 +14,7 @@
     "example",
     "bootstrap"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
+  "scss": "./scss/theme.scss",
   "files": [
     "dist",
     "scss",

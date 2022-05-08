@@ -1,11 +1,11 @@
-# @example/bootstrap5
+# @example/bootstrap
 
 Package description
 
 ## Install
 
 ```
-npm install @example/bootstrap5
+npm install @example/bootstrap
 ```
 
 ## Usage
