@@ -27,7 +27,7 @@ Merge this config into `packages/your-module/package.json` file:
     "coverage": "c8 -r lcov -r text npm test"
   },
   "ava": {
-    "files": ["packages/**/*.test.ts"],
+    "files": ["test/**/*.test.ts"],
     "extensions": {
       "ts": "module"
     },
@@ -35,7 +35,7 @@ Merge this config into `packages/your-module/package.json` file:
       "configurableModuleFormat": true
     },
     "nodeArguments": ["--loader=ts-node/esm", "--no-warnings"],
-    "ignoredByWatcher": ["**/{coverage,dist}/**"]
+    "ignoredByWatcher": ["{coverage,dist}/**"]
   }
 }
 ```
