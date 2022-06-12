@@ -1,10 +1,10 @@
 {
   "extends": ["config:base"],
+  "rangeStrategy": "bump",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "rangeStrategy": "bump"
+      "automerge": true
     }
   ]
 }
