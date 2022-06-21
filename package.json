@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@tsconfig/node12": "1.0.11",
-    "@types/jest": "27.5.2",
+    "@types/jest": "28.1.3",
     "doogu": "1.2.1",
     "jest": "28.1.1",
     "ts-jest": "28.0.5"
