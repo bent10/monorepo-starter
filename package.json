@@ -26,15 +26,16 @@
     "coverage": "npm run coverage --workspaces --if-present"
   },
   "devDependencies": {
-    "@tsconfig/node12": "1.0.11",
-    "@types/jest": "27.5.2",
-    "doogu": "1.2.1",
-    "jest": "28.1.1",
-    "ts-jest": "28.0.5"
+    "concurrently": "^7.2.2",
+    "doogu": "^2.2.0"
   },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  }
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/doogu/config/eslint-root.json"
+  },
+  "prettier": "doogu/config/prettier-frontend.json"
 }

@@ -73,10 +73,10 @@ npm run build -w pkg1 -w pkg2 ...
 
 ## Recipes
 
-- [Automated dependency updates](docs/recipes/setup-renovate.md)
-- [Release automation](docs/recipes/release-automation.md)
-- [Replace Jest with AVA](docs/recipes/tests-with-ava.md)
-- [Integrating Eleventy](docs/recipes/integrating-eleventy.md)
+- [Automated dependency updates](.github/recipes/setup-renovate.md)
+- [Release automation](.github/recipes/release-automation.md)
+- [Replace Jest with AVA](.github/recipes/tests-with-ava.md)
+- [Integrating Eleventy](.github/recipes/integrating-eleventy.md)
 
 ## Contributing
 

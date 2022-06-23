@@ -1,12 +1,14 @@
 {
-  "extends": ["stylelint-config-twbs-bootstrap/scss"],
+  "$schema": "https://json.schemastore.org/stylelintrc.json",
+  "extends": ["stylelint-config-twbs-bootstrap"],
+  "ignoreFiles": ["**/*.min.css"],
   "rules": {
     "number-leading-zero": "always",
     "declaration-property-value-disallowed-list": {
       "border": "none",
       "outline": "none"
     },
-    "function-disallowed-list": ["lighten", "darken"],
+    "function-disallowed-list": ["calc", "lighten", "darken"],
     "property-disallowed-list": [
       "border-radius",
       "border-top-left-radius",

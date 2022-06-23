@@ -1,17 +1,17 @@
 # @example/typescript
 
-Package description
+A bare-bones template for TypeScript module.
 
 ## Install
 
 ```
-npm install @example/typescript
+npm i mymodule
 ```
 
 ## Usage
 
 ```js
-const { sum } = require("maths")
+const { sum } = require('maths')
 
 console.log(sum(5, 5)) // 10
 ```

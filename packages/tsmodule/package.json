@@ -1,0 +1,56 @@
+{
+  "name": "tsmodule",
+  "description": "A bare-bones template for TypeScript module",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/monorepo-starter",
+  "homepage": "https://github.com/bent10/monorepo-starter/tree/packages/tsmodule#readme",
+  "bugs": "https://github.com/bent10/monorepo-starter/issues",
+  "license": "MIT",
+  "keywords": [
+    "example",
+    "typescript",
+    "module",
+    "esm"
+  ],
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md",
+    "license"
+  ],
+  "scripts": {
+    "start": "npm run build && npm run watch",
+    "watch": "chokidar \"src/*.ts\" -c \"npm run build\"",
+    "lint": "tsc --noEmit && eslint \"./src\" --ext \".ts\" --cache --cache-location \".cache/.eslintcache\"",
+    "build": "swc \"./src\" -d \"dist\" && tsc -d --emitDeclarationOnly",
+    "test": "ava --verbose",
+    "coverage": "c8 -r lcov -r text npm test"
+  },
+  "dependencies": {},
+  "eslintConfig": {
+    "extends": "../../node_modules/doogu/config/eslint.json"
+  },
+  "prettier": "doogu/config/prettier.json",
+  "ava": {
+    "files": [
+      "test/**/*.test.ts"
+    ],
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--no-warnings"
+    ],
+    "ignoredByWatcher": [
+      "{coverage,dist,.cache}/**"
+    ],
+    "cache": false
+  }
+}

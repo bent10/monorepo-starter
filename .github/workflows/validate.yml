@@ -7,8 +7,8 @@ on:
       - synchronize
   push:
     branches:
-      - '*'
-      - '!main'
+      - "*"
+      - "!main"
 
 jobs:
   test:
@@ -18,9 +18,9 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
-          - 18
           - 16
-          - 14
+          - 14.17
+          - 12.22
         os:
           - ubuntu-latest
           - windows-latest
