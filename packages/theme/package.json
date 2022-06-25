@@ -32,7 +32,7 @@
     "build:rtl": "postcss \"dist/**/*.css\" \"!dist/**/*.{min,rtl}.css\" --use=rtlcss --dir=dist --base=dist --ext=\".rtl.css\" --map",
     "build:prefix": "postcss \"dist/**/*.css\" --replace --use=autoprefixer --map",
     "build:min": "postcss \"dist/**/*.css\" \"!dist/**/*.min.css\" --use=cssnano --dir=dist --base=dist --ext=\".min.css\" --map",
-    "lint": "stylelint \"**/*.{css,scss}\" --cache --cache-location=\".cache/.stylelintcache\" --rd"
+    "lint": "stylelint \"scss/\" --cache --cache-location=\".cache/.stylelintcache\" --rd"
   },
   "dependencies": {
     "bootstrap": "^5.1.3"

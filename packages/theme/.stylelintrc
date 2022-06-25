@@ -4,6 +4,7 @@
   "ignoreFiles": ["**/*.min.css"],
   "rules": {
     "number-leading-zero": "always",
+    "declaration-no-important": null,
     "declaration-property-value-disallowed-list": {
       "border": "none",
       "outline": "none"
