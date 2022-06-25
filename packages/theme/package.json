@@ -28,7 +28,7 @@
   "scripts": {
     "start": "chokidar \"scss/*.scss\" \"scss/**/*.scss\" --command=\"npm run build\"",
     "build": "npm-run-all \"build:*\"",
-    "build:scss": "sass \"scss/:dist/\" --load-path=\"../../\" --style=expanded --source-map",
+    "build:scss": "sass \"scss/\" \"dist/\" --load-path=\"../../\" --style=expanded --source-map",
     "build:rtl": "postcss \"dist/**/*.css\" \"!dist/**/*.{min,rtl}.css\" --use=rtlcss --dir=dist --base=dist --ext=\".rtl.css\" --map",
     "build:prefix": "postcss \"dist/**/*.css\" --replace --use=autoprefixer --map",
     "build:min": "postcss \"dist/**/*.css\" \"!dist/**/*.min.css\" --use=cssnano --dir=dist --base=dist --ext=\".min.css\" --map",
