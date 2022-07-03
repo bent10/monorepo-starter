@@ -18,7 +18,7 @@ npm i -D ava ts-node c8
 
 ## Configuration
 
-Merge this config into `packages/your-module/package.json` file:
+Merge this config into `package.json` file:
 
 ```json
 {
@@ -31,9 +31,6 @@ Merge this config into `packages/your-module/package.json` file:
     "extensions": {
       "ts": "module"
     },
-    "experiments": {
-      "configurableModuleFormat": true
-    },
     "nodeArguments": ["--loader=ts-node/esm", "--no-warnings"],
     "ignoredByWatcher": ["{coverage,dist}/**"]
   }
@@ -44,16 +41,10 @@ Please go to [AVA docs](https://github.com/avajs/ava/blob/main/docs/06-configura
 
 ## Removing Jest
 
-Now you should remove `jest` field in the `packages/your-module/package.json` file:
+Now you should remove `jest` field in the `package.json` file:
 
 ```json
 {
   "jest": {...}
 }
-```
-
-Then uninstall all of Jest stuff:
-
-```bash
-npm uninstall jest ts-jest @types/jest
 ```
