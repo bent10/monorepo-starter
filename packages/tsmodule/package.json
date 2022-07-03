@@ -29,28 +29,24 @@
     "watch": "chokidar \"src/*.ts\" -c \"npm run build\"",
     "lint": "tsc --noEmit && eslint \"./src\" --ext \".ts\" --cache --cache-location \".cache/.eslintcache\"",
     "build": "swc \"./src\" -d \"dist\" && tsc -d --emitDeclarationOnly",
-    "test": "ava --verbose",
-    "coverage": "c8 -r lcov -r text npm test"
+    "test": "node --experimental-vm-modules --no-warnings ../../node_modules/jest/bin/jest.js --verbose",
+    "coverage": "npm test -- --coverage"
   },
   "dependencies": {},
   "eslintConfig": {
     "extends": "../../node_modules/doogu/config/eslint.json"
   },
   "prettier": "doogu/config/prettier.json",
-  "ava": {
-    "files": [
-      "test/**/*.test.ts"
-    ],
-    "extensions": {
-      "ts": "module"
+  "jest": {
+    "transform": {
+      "^.+\\.(t|j)sx?$": [
+        "@swc/jest"
+      ]
     },
-    "nodeArguments": [
-      "--loader=ts-node/esm",
-      "--no-warnings"
+    "extensionsToTreatAsEsm": [
+      ".ts"
     ],
-    "ignoredByWatcher": [
-      "{coverage,dist,.cache}/**"
-    ],
-    "cache": false
+    "clearMocks": true,
+    "coverageDirectory": "coverage"
   }
 }
