@@ -13,6 +13,7 @@ A monorepo starter template using native NPM workspace 🗂️
   - [Installation `packages/*`](#installation-packages)
   - [Available commands](#available-commands)
 - [Recipes](#recipes)
+- [Related](#related)
 - [Contributing](#contributing)
 - [Thank you](#thank-you)
 
@@ -77,6 +78,11 @@ npm run build -w pkg1 -w pkg2 ...
 - [Release automation](.github/recipes/release-automation.md)
 - [Replace Jest with AVA](.github/recipes/tests-with-ava.md)
 - [Integrating Eleventy](.github/recipes/integrating-eleventy.md)
+
+## Related
+
+- [module-starter](https://github.com/bent10/module-starter) – A bare-bones template for TypeScript module
+- [doogu](https://github.com/bent10/doogu) – A wrapper around modern JavaScript tools
 
 ## Contributing
 
