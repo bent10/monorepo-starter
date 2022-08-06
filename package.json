@@ -26,7 +26,7 @@
     "coverage": "npm run coverage --workspaces --if-present"
   },
   "devDependencies": {
-    "doogu": "^2.3.18",
+    "doogu": "^2.3.19",
     "npm-run-all": "^4.1.5"
   },
   "config": {
