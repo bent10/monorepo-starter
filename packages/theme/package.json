@@ -38,7 +38,7 @@
     "bootstrap": "^5.2.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.9",
+    "autoprefixer": "^10.4.10",
     "cssnano": "^5.1.13",
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
