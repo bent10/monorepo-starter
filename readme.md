@@ -10,7 +10,6 @@ A monorepo starter template using native NPM workspace 🗂️
 
 - [Features](#features)
 - [Usage](#usage)
-  - [Installation `packages/*`](#installation-packages)
   - [Available commands](#available-commands)
 - [Recipes](#recipes)
 - [Related](#related)
