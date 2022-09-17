@@ -8,14 +8,6 @@
 
 A monorepo starter template using native NPM workspace 🗂️
 
-- [Features](#features)
-- [Usage](#usage)
-  - [Available commands](#available-commands)
-- [Recipes](#recipes)
-- [Related](#related)
-- [Contributing](#contributing)
-- [Thank you](#thank-you)
-
 ## Features
 
 - Fast
