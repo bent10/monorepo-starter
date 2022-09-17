@@ -52,10 +52,6 @@ cd my-project
 npm i
 ```
 
-### Installation `packages/*`
-
-We provide several [package templates](examples). Please install the [required dependencies](examples#requirements) based on the _template_ you are using.
-
 ### Available commands
 
 ```bash
