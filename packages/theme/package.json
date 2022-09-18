@@ -45,7 +45,7 @@
     "postcss-rtlcss": "^3.7.2",
     "purgecss": "^4.1.3",
     "sass": "^1.54.9",
-    "stylelint": "^14.11.0",
+    "stylelint": "^14.12.0",
     "stylelint-config-twbs-bootstrap": "^6.0.0"
   }
 }
