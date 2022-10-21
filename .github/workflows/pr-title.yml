@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Check PR Title
-        uses: clowdhaus/actions/pr-title@v0.1.4
+        uses: clowdhaus/actions/pr-title@v0.3.1
         with:
           on-fail-message: "Your PR title doesn't match the required format. The title should be in the conventional commit (https://www.conventionalcommits.org) format. e.g.\n\n```\nchore(plugin-name): add pr title workflow\n```"
           title-regex: '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([\w|,|\-|\|]+\))?(!)?\:\s.*$'
