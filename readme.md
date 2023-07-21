@@ -15,10 +15,9 @@
 - **Multilingual Support**: Develop packages with mixed languages within a single repository.
 - **Modern Code**: Embrace the latest syntax and coding practices for increased productivity.
 - **Output Formats**: Provides UMD, CommonJS, and ESM output formats for JavaScript packages.
-- **SCSS Support**: Auto generates `*.rtl.css` files for SCSS packages.
 - **Live Playground**: Get a live playground environment ready to experiment with your code.
 
-## Installation
+## Install
 
 To start a new project using Monorepo Starter, you can either **click the "Use this template"** button on GitHub or manually clone the repository. After cloning, navigate to the project directory and install the required dependencies using the following command:
 
