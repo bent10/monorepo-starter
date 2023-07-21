@@ -1,0 +1,45 @@
+{
+  "name": "core",
+  "description": "A bare-bones template for shared utilities",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Your ORG (https://example.com)",
+  "repository": "https://github.com/org/monorepo",
+  "homepage": "https://github.com/org/monorepo/tree/packages/core",
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "npm",
+    "starter",
+    "package",
+    "template",
+    "boilerplate",
+    "example",
+    "typescript",
+    "module",
+    "esm"
+  ],
+  "engines": {
+    "node": "^12.22 || ^14.17 || >=16.10.0"
+  },
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md",
+    "license"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npm run types && vite build --emptyOutDir false --watch",
+    "build": "vite build && npm run types",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "types": "tsc -d --emitDeclarationOnly --outDir ./dist && resolve-tspaths -o ./dist",
+    "lint": "tsc --noEmit && eslint .",
+    "format": "prettier . --write --cache-location .cache/prettier --ignore-path ../../.prettierignore"
+  }
+}

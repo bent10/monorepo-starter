@@ -1,14 +1,13 @@
 {
   "name": "theme",
-  "description": "A bare-bones template for Bootstrap-powered npm projects",
+  "description": "A bare-bones template for Bootstrap-powered theme",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"
   },
-  "author": "Beni Arisandi (https://stilearning.com)",
-  "repository": "https://github.com/bent10/monorepo-starter",
-  "homepage": "https://github.com/bent10/monorepo-starter/tree/packages/theme#readme",
-  "bugs": "https://github.com/bent10/monorepo-starter/issues",
+  "author": "Your ORG (https://example.com)",
+  "repository": "https://github.com/org/monorepo",
+  "homepage": "https://github.com/org/monorepo/tree/packages/theme",
   "license": "MIT",
   "keywords": [
     "example",
@@ -17,33 +16,39 @@
     "scss",
     "css"
   ],
-  "scss": "./scss/theme.scss",
-  "main": "dist/theme.css",
+  "type": "module",
+  "scss": "./src/scss/theme.scss",
+  "exports": "./src/js/theme.ts",
+  "main": "dist/assets/js/theme.js",
   "files": [
     "dist",
-    "scss",
+    "src/js",
+    "src/scss",
     "readme.md",
     "license"
   ],
   "scripts": {
-    "start": "chokidar \"scss/*.scss\" \"scss/**/*.scss\" --command=\"npm run build\"",
-    "build": "npm-run-all \"build:*\"",
-    "build:scss": "sass \"scss/theme.scss\" \"dist/theme.css\" --load-path=\"../../\" --style=expanded",
-    "build:rtl": "postcss \"dist/**/*.css\" \"!dist/**/*.{min,rtl}.css\" --use=rtlcss --dir=dist --base=dist --ext=\".rtl.css\" --map",
-    "build:prefix": "postcss \"dist/**/*.css\" --replace --use=autoprefixer --map",
-    "build:min": "postcss \"dist/**/*.css\" \"!dist/**/*.min.css\" --use=cssnano --dir=dist --base=dist --ext=\".min.css\" --map",
-    "lint": "stylelint \"scss/\" --cache --cache-location=\".cache/.stylelintcache\" --rd"
+    "start": "npm run dev",
+    "dev": "vite",
+    "build": "vite build --emptyOutDir",
+    "lint:scss": "stylelint src/scss --cache --cache-location .cache/stylelint --rd",
+    "lint:js": "tsc --noEmit && eslint .",
+    "lint": "npm run lint:scss && npm run lint:js",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "format": "prettier . --write --cache-location .cache/prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.2.2"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@types/bootstrap": "^5.2.6",
     "autoprefixer": "^10.4.13",
-    "cssnano": "^5.1.14",
+    "jsdom": "^22.1.0",
     "postcss": "^8.4.18",
-    "postcss-cli": "^10.0.0",
-    "postcss-rtlcss": "^4.0.1",
-    "purgecss": "^5.0.0",
     "sass": "^1.56.1",
     "stylelint": "^14.14.1",
     "stylelint-config-twbs-bootstrap": "^6.0.0"

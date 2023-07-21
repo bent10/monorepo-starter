@@ -1,7 +1,13 @@
 [&laquo; Back to recipes](https://github.com/bent10/monorepo-starter#recipes)
 
-# Automated dependency updates
+# Automated Dependency Updates
 
-We are using [renovateboot](https://github.com/renovatebot/renovate), you can see that we have set the settings in the `.github/renovate.json` file which you can find in the root folder.
+To automate the process of updating dependencies in our project, we utilize [Renovate](https://github.com/renovatebot/renovate). To configure the settings for Renovate, you can locate the `.github/renovate.json` file in the root folder of the repository.
 
-It's just that you need to install [Renovate GitHub App](https://github.com/apps/renovate) on your repository to make the workflow work.
+To get started with Renovate, follow these steps:
+
+1. Install the [Renovate GitHub App](https://github.com/apps/renovate) on your repository. This app is essential for the workflow to function properly.
+
+Once you have successfully installed the Renovate GitHub App, it will facilitate automated dependency updates for your repository. This ensures that your project stays up to date with the latest versions of its dependencies.
+
+By employing Renovate, we streamline the process of managing dependencies, allowing us to benefit from bug fixes, security patches, and new features introduced by the upstream libraries.

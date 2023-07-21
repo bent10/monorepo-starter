@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+
+  "compilerOptions": {
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "moduleResolution": "Bundler"
+  },
+
+  "include": ["src", "test"]
+}
