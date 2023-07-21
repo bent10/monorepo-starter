@@ -70,6 +70,9 @@ export default defineConfig({
     cache: {
       dir: '../.cache/vitest'
     },
+    coverage: {
+      reportsDirectory: '../coverage'
+    },
     include: ['../test/**/*.test.ts'],
     environment: 'jsdom',
     setupFiles: '../test/config.ts'
