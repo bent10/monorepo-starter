@@ -112,14 +112,12 @@ jobs:
 
       - name: Installing release dependencies
         run: |
-          npm i -g multi-semantic-release
-          npm i -g @semantic-release/changelog
-          npm i -g @semantic-release/git
+          npm i -D multi-semantic-release @semantic-release/changelog @semantic-release/git
       - name: Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: multi-semantic-release
+        run: npx multi-semantic-release
 ```
 
 ## Dry Run
@@ -128,10 +126,10 @@ Test release locally using the following command:
 
 ```bash
 # We need to install semantic release tools and dependencies first
-npm i -g multi-semantic-release @semantic-release/changelog @semantic-release/git
+npm i -D multi-semantic-release @semantic-release/changelog @semantic-release/git
 
 # Then run the dry run
-multi-semantic-release --dry-run
+npx multi-semantic-release --dry-run
 ```
 
 ## Related Resources
