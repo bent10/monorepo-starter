@@ -27,8 +27,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      # We need NPM >=7 to support --workflow
-      - run: npm i -g npm@latest
       - run: npm ci
       - run: npm run lint
       - run: npm test

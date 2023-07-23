@@ -103,8 +103,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18 # required by semantic-release
-      # We need NPM >=7 to support --workflow
-      - run: sudo npm i -g npm@latest
       - run: npm ci
       - run: npm run lint
       - run: npm run build
