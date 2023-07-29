@@ -29,7 +29,7 @@
     "format": "npm run format --workspaces --if-present"
   },
   "devDependencies": {
-    "doogu": "^3.2.5"
+    "doogu": "^3.2.6"
   },
   "config": {
     "commitizen": {
