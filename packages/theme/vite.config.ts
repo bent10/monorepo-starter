@@ -2,28 +2,33 @@
 
 import { join, resolve } from 'node:path'
 import autoprefixer from 'autoprefixer'
-import purgecss from '@fullhuman/postcss-purgecss'
 import { defineConfig } from 'vite'
+import pluginPurgeCSS from 'vite-plugin-purge'
 
-const ROOT_REPO = resolve(__dirname, '../../')
+const nodejsPath = (dir: string) => {
+  const root = resolve(__dirname, '../../node_modules')
+
+  return join(root, dir)
+}
 
 export default defineConfig({
+  appType: 'mpa',
   root: resolve(__dirname, 'src'),
-  cacheDir: '../.cache/vite',
+  cacheDir: nodejsPath('.vite'),
   resolve: {
     alias: {
-      '~bootstrap': join(ROOT_REPO, 'node_modules/bootstrap')
+      '~bootstrap': nodejsPath('bootstrap')
     }
   },
   build: {
     outDir: '../dist',
     sourcemap: true,
     rollupOptions: {
-      // external: ['bootstrap'],
+      external: ['bootstrap'],
       output: {
-        // globals: {
-        //   bootstrap: 'bootstrap'
-        // },
+        globals: {
+          bootstrap: 'bootstrap'
+        },
         assetFileNames({ name = '' }) {
           if (name === 'index.css' || name === 'index.css.map') {
             return 'assets/css/theme.[ext]'
@@ -42,37 +47,27 @@ export default defineConfig({
     }
   },
   css: {
-    preprocessorOptions: {
-      scss: {
-        sourceMap: true
-      }
-    },
+    preprocessorOptions: { scss: { sourceMap: true } },
     postcss: {
       map: true,
-      plugins: [
-        autoprefixer(),
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        purgecss({
-          content: ['src/**/*.html'],
-          // @see https://purgecss.com/safelisting.html
-          safelist: {
-            deep: [
-              /(?:carousel\-item|collapsing|modal|offcanvas|popover|tooltip|active|fade|show|slide)/
-            ]
-          }
-        })
-      ]
+      plugins: [autoprefixer()]
     }
   },
+  plugins: [
+    // enable purging only in production
+    pluginPurgeCSS({
+      content: ['src/**/*.html'],
+      safelist: {
+        deep: [
+          // preserve specific CSS classes.
+          /(?:carousel\-item|collapsing|modal|offcanvas|popover|tooltip|active|fade|show|slide)/
+        ]
+      }
+    })
+  ],
   test: {
     globals: true,
-    cache: {
-      dir: '../.cache/vitest'
-    },
-    coverage: {
-      reportsDirectory: '../coverage'
-    },
+    cache: { dir: nodejsPath('.vitest') },
     include: ['../test/**/*.test.ts'],
     environment: 'jsdom',
     setupFiles: '../test/config.ts'
