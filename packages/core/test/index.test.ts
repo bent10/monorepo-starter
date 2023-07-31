@@ -1,7 +1,7 @@
-import { fooFn } from '../src/index.js'
+import foo from '../src/index.js'
 
 describe('foo', () => {
-  it('should result 3', () => {
-    expect(fooFn(1, 2)).toBe(3)
+  it('should call foo', () => {
+    expect(foo('world')).toBe('Hello world!')
   })
 })

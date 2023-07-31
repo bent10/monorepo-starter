@@ -1,1 +1,3 @@
-export const fooFn = (a: number, b: number): number => a + b
+export default function (str: string) {
+  return `Hello ${str}!`
+}

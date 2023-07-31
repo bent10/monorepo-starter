@@ -21,12 +21,17 @@
     "module",
     "esm"
   ],
-  "engines": {
-    "node": "^12.22 || ^14.17 || >=16.10.0"
-  },
   "type": "module",
-  "exports": "./dist/index.js",
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
     "dist",
     "readme.md",
@@ -34,7 +39,7 @@
   ],
   "scripts": {
     "start": "npm run dev",
-    "dev": "npm run types && vite build --emptyOutDir false --watch",
+    "dev": "vite build --watch & vite",
     "build": "vite build && npm run types",
     "test": "vitest",
     "coverage": "vitest run --coverage",

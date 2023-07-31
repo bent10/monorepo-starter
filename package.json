@@ -39,5 +39,8 @@
   "eslintConfig": {
     "extends": "./node_modules/doogu/eslint"
   },
-  "prettier": "doogu/prettier.json"
+  "prettier": "doogu/prettier.json",
+  "release": {
+    "extends": "doogu/release.config.js"
+  }
 }

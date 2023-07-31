@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <title>MyLib Demo</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <h1 class="mb-4">MyLib Demo</h1>
+
+      <p id="esm" class="text-success"></p>
+      <p id="umd" class="text-success"></p>
+      <p id="iife" class="text-success"></p>
+    </div>
+
+    <script type="module">
+      import foo from "./src/index.ts"
+
+      document.querySelector("#esm").innerHTML = foo("esm")
+    </script>
+
+    <script src="/dist/index.umd.cjs"></script>
+    <script>
+      document.querySelector("#umd").innerHTML = MyLib("umd")
+
+      delete window.MyLib // so that it won't affect iife
+    </script>
+
+    <script src="/dist/index.iife.js"></script>
+    <script>
+      document.querySelector("#iife").innerHTML = MyLib("iife")
+    </script>
+  </body>
+</html>
