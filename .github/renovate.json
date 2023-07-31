@@ -1,11 +1,8 @@
 {
-  "extends": ["config:base"],
-  "labels": ["dependencies"],
-  "rangeStrategy": "bump",
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
+  "extends": [
+    "config:recommended",
+    "schedule:weekends",
+    "schedule:automergeWeekly",
+    "npm:unpublishSafe"
   ]
 }
