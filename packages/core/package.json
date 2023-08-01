@@ -34,8 +34,8 @@
   },
   "files": [
     "dist",
-    "readme.md",
-    "license"
+    "changelog.md",
+    "readme.md"
   ],
   "scripts": {
     "start": "npm run dev",
