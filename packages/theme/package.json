@@ -17,9 +17,13 @@
     "css"
   ],
   "type": "module",
-  "scss": "./src/scss/theme.scss",
-  "exports": "./src/js/theme.ts",
   "main": "dist/assets/js/theme.js",
+  "exports": {
+    ".": "./dist/assets/js/theme.js",
+    "./css/*.css": "./dist/assets/css/*.css",
+    "./scss/*.scss": "./src/scss/*.scss",
+    "./js/*": "./src/js/*"
+  },
   "files": [
     "dist",
     "src/js",
@@ -49,9 +53,9 @@
     "@types/bootstrap": "^5.2.6",
     "autoprefixer": "^10.4.14",
     "jsdom": "^22.1.0",
-    "sass": "^1.64.1",
+    "sass": "^1.64.2",
     "stylelint": "^15.10.2",
     "stylelint-config-twbs-bootstrap": "^11.0.1",
-    "vite-plugin-purge": "^1.0.0"
+    "vite-plugin-purge": "^1.0.2"
   }
 }

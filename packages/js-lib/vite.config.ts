@@ -1,9 +1,10 @@
 /// <reference types="vitest" />
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
+import cacheDir from 'vite-plugin-cachedir'
 
 export default defineConfig({
-  cacheDir: '.cache/vite',
+  plugins: [cacheDir()],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),

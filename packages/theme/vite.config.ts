@@ -3,7 +3,8 @@
 import { join, resolve } from 'node:path'
 import autoprefixer from 'autoprefixer'
 import { defineConfig } from 'vite'
-import pluginPurgeCSS from 'vite-plugin-purge'
+import cacheDir from 'vite-plugin-cachedir'
+import purgeCSS from 'vite-plugin-purge'
 
 const nodejsPath = (dir: string) => {
   const root = resolve(__dirname, '../../node_modules')
@@ -14,11 +15,8 @@ const nodejsPath = (dir: string) => {
 export default defineConfig({
   appType: 'mpa',
   root: resolve(__dirname, 'src'),
-  cacheDir: nodejsPath('.vite'),
   resolve: {
-    alias: {
-      '~bootstrap': nodejsPath('bootstrap')
-    }
+    alias: { '~bootstrap': nodejsPath('bootstrap') }
   },
   build: {
     outDir: '../dist',
@@ -48,14 +46,12 @@ export default defineConfig({
   },
   css: {
     preprocessorOptions: { scss: { sourceMap: true } },
-    postcss: {
-      map: true,
-      plugins: [autoprefixer()]
-    }
+    postcss: { map: true, plugins: [autoprefixer()] }
   },
   plugins: [
+    cacheDir(),
     // enable purging only in production
-    pluginPurgeCSS({
+    purgeCSS({
       content: ['src/**/*.html'],
       safelist: {
         deep: [
@@ -67,7 +63,6 @@ export default defineConfig({
   ],
   test: {
     globals: true,
-    cache: { dir: nodejsPath('.vitest') },
     include: ['../test/**/*.test.ts'],
     environment: 'jsdom',
     setupFiles: '../test/config.ts'

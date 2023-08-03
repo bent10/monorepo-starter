@@ -1,13 +1,13 @@
 {
   "name": "vite-plugin-foo",
-  "description": "Lorem",
+  "description": "A bare-bones template for Vite plugin",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"
   },
-  "author": "Beni Arisandi (https://stilearning.com)",
-  "repository": "https://github.com/bent10/vite-plugins",
-  "homepage": "https://github.com/bent10/vite-plugins/tree/main/packages/plugin-foo",
+  "author": "Your ORG (https://example.com)",
+  "repository": "https://github.com/org/monorepo",
+  "homepage": "https://github.com/org/monorepo/tree/main/packages/plugin-foo",
   "license": "MIT",
   "keywords": [
     "vite",
