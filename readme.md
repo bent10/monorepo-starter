@@ -59,13 +59,11 @@ npm run build -w pkg1 -w pkg2 ...
 
 This monorepo starter comes with the following packages:
 
-### [`@my-org/core`](packages/core)
-
-A bare-bones template for shared utilities. This package serves as a foundation for common functionalities and utilities that can be shared across multiple projects within the monorepo.
-
-### [`@my-org/theme`](packages/theme)
-
-A bare-bones template for a Bootstrap-powered theme. This package provides the basic structure and styling for a theme powered by Bootstrap, allowing you to quickly start building user interfaces with a consistent and responsive design.
+| Package                             | Description                          | Version (click for changelog)                           |
+| :---------------------------------- | :----------------------------------- | :------------------------------------------------------ |
+| [js-lib](packages/js-lib)           | Template for shared utilities        | [v0.0.0-development](packages/js-lib/changelog.md)      |
+| [theme](packages/theme)             | Template for Bootstrap-powered theme | [v0.0.0-development](packages/theme/changelog.md)       |
+| [vite-plugin](packages/vite-plugin) | Template for Vite plugin             | [v0.0.0-development](packages/vite-plugin/changelog.md) |
 
 ### Adding New Packages
 
