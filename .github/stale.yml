@@ -1,17 +1,23 @@
-# all settings listed here - https://github.com/probot/stale#usage
+name: 'Close stale issues and PRs'
+on:
+  schedule:
+    - cron: '60 1 * * *'
 
-daysUntilStale: 60
-daysUntilClose: 1
-exemptAssignees: true
-# use this property to disable stale bot when we apply the wontfix label, prevents users from playing stale bot ping pong and keeping an issue open with no intent of action
-exemptLabels:
-  - status:wontfix
-  - status:hold
-only: issues
-staleLabel: status:stale
-markComment: false
-closeComment: >
-  Hey folks. This issue hasn't received any traction for 60 days, so we're going to close this for housekeeping.
-  If this is still an ongoing issue, please do consider contributing a Pull Request to resolve it. Further
-  discussion is always welcome even with the issue closed. If anything actionable is posted in the comments,
-  we'll consider reopening it.  [ⓘ](https://github.com/probot/stale#is-closing-stale-issues-really-a-good-idea)
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v8
+        with:
+          stale-issue-label: 'no-issue-activity'
+          stale-pr-label: 'no-pr-activity'
+          exempt-issue-labels: 'awaiting-approval,wip'
+          exempt-pr-labels: 'awaiting-approval,wip'
+          stale-issue-message: >
+            Hey folks! This issue has been inactive for 60 days. If it's still relevant,
+            could you please provide additional information or confirm whether it's still an ongoing concern?
+            Otherwise, we may consider closing this issue. Thank you! :wave:
+          stale-pr-message: >
+            Hey there! This pull request has been inactive for 60 days. If you're still working on it,
+            please provide an update or let us know if you need any assistance.
+            If we don't hear back, we may consider closing this pull request. Thanks! :wave:
