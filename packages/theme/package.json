@@ -39,10 +39,10 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "types": "tsc src/**/*.ts -d --emitDeclarationOnly --outDir ./dist && resolve-tspaths -o ./dist",
-    "lint:scss": "stylelint src/scss --cache --cache-location .cache/stylelint --rd",
-    "lint:js": "tsc --noEmit && eslint .",
+    "lint:scss": "stylelint src/scss --cache --cache-location ../../node_modules/.stylelint --rd",
+    "lint:js": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
     "lint": "npm run lint:scss && npm run lint:js",
-    "format": "prettier . --write --cache-location .cache/prettier --ignore-path ../../.prettierignore"
+    "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
