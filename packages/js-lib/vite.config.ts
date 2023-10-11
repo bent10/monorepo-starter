@@ -1,24 +1,32 @@
 /// <reference types="vitest" />
 import { resolve } from 'node:path'
-import { defineConfig } from 'vite'
-import cacheDir from 'vite-plugin-cachedir'
+import { defineConfig, type BuildOptions } from 'vite'
 
-export default defineConfig({
-  plugins: [cacheDir()],
-  build: {
-    lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      name: 'MyLib',
-      formats: ['es', 'umd', 'iife'],
-      fileName: 'index'
+export default defineConfig(({ command, ssrBuild }) => {
+  const isBuildLib = command === 'build' && !ssrBuild
+  const build: BuildOptions = {}
+
+  if (isBuildLib) {
+    Object.assign(build, <BuildOptions>{
+      emptyOutDir: false,
+      lib: {
+        entry: resolve(__dirname, 'src/index.ts'),
+        name: 'MyLib',
+        formats: ['umd'],
+        fileName: 'index'
+      }
+      // rollupOptions: {
+      //   external: ['vue'],
+      //   output: { globals: { vue: 'Vue' } }
+      // }
+    })
+  }
+
+  return {
+    build,
+    test: {
+      globals: true,
+      include: ['test/*.test.ts']
     }
-    // rollupOptions: {
-    //   external: ['vue'],
-    //   output: { globals: { vue: 'Vue' } }
-    // }
-  },
-  test: {
-    globals: true,
-    include: ['test/**/*.test.ts']
   }
 })

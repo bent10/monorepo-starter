@@ -1,7 +1,7 @@
+/// <reference types="vitest/globals" />
+
 import lib from '../src/index.js'
 
-describe('lib', () => {
-  it('should call lib', () => {
-    expect(lib('foo')).toBe('Hello foo!')
-  })
+it('should call lib', () => {
+  expect(lib('foo')).toBe('Hello foo!')
 })

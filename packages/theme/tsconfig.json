@@ -7,5 +7,5 @@
     "moduleResolution": "Bundler"
   },
 
-  "include": ["src", "test"]
+  "include": ["js"]
 }

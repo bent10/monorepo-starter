@@ -6,14 +6,10 @@ import cacheDir from 'vite-plugin-cachedir'
 export default defineConfig({
   plugins: [cacheDir()],
   build: {
-    lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      formats: ['es'],
-      fileName: 'index'
-    }
+    ssr: resolve(__dirname, 'src/index.ts'),
   },
   test: {
     globals: true,
-    include: ['test/**/*.test.ts']
+    include: ['test/*.test.ts']
   }
 })

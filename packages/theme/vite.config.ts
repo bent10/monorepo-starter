@@ -13,13 +13,10 @@ const nodejsPath = (dir: string) => {
 }
 
 export default defineConfig({
-  appType: 'mpa',
-  root: resolve(__dirname, 'src'),
   resolve: {
     alias: { '~bootstrap': nodejsPath('bootstrap') }
   },
   build: {
-    outDir: '../dist',
     sourcemap: true,
     rollupOptions: {
       external: ['bootstrap'],
@@ -29,17 +26,17 @@ export default defineConfig({
         },
         assetFileNames({ name = '' }) {
           if (name === 'index.css' || name === 'index.css.map') {
-            return 'assets/css/theme.[ext]'
+            return 'css/theme.[ext]'
           }
 
-          return `assets/[name].[ext]`
+          return `[name].[ext]`
         },
         entryFileNames({ name }) {
           if (name === 'index') {
-            return 'assets/js/theme.js'
+            return 'js/theme.js'
           }
 
-          return 'assets/js/[name].js'
+          return 'js/[name].js'
         }
       }
     }
@@ -52,7 +49,7 @@ export default defineConfig({
     cacheDir(),
     // enable purging only in production
     purgeCSS({
-      content: ['src/**/*.html'],
+      content: ['*.html'],
       safelist: {
         deep: [
           // preserve specific CSS classes.
@@ -63,8 +60,8 @@ export default defineConfig({
   ],
   test: {
     globals: true,
-    include: ['../test/**/*.test.ts'],
+    include: ['test/**/*.test.ts'],
     environment: 'jsdom',
-    setupFiles: '../test/config.ts'
+    setupFiles: 'test/config.ts'
   }
 })

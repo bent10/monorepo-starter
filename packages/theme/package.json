@@ -17,29 +17,29 @@
     "css"
   ],
   "type": "module",
-  "main": "dist/assets/js/theme.js",
+  "main": "dist/js/theme.js",
   "exports": {
-    ".": "./dist/assets/js/theme.js",
-    "./css/*.css": "./dist/assets/css/*.css",
-    "./scss/*.scss": "./src/scss/*.scss",
-    "./js/*": "./src/js/*"
+    ".": "./js/theme.ts",
+    "./js/*": "./js/*",
+    "./scss/*.scss": "./scss/*.scss",
+    "./css/*.css": "./dist/css/*.css"
   },
   "files": [
     "dist",
-    "src/js",
-    "src/scss",
+    "js",
+    "scss",
     "changelog.md",
     "readme.md"
   ],
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",
-    "build": "vite build --emptyOutDir",
+    "build": "vite build",
     "preview": "vite preview --open",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "types": "tsc src/**/*.ts -d --emitDeclarationOnly --outDir ./dist && resolve-tspaths -o ./dist",
-    "lint:scss": "stylelint src/scss --cache --cache-location ../../node_modules/.stylelint --rd",
+    "types": "tsc -d --emitDeclarationOnly --outDir ./dist && resolve-tspaths -o ./dist",
+    "lint:scss": "stylelint ./scss --cache --cache-location ../../node_modules/.stylelint --rd",
     "lint:js": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
     "lint": "npm run lint:scss && npm run lint:js",
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"

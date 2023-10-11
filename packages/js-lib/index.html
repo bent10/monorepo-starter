@@ -17,7 +17,6 @@
 
       <p id="esm" class="text-success"></p>
       <p id="umd" class="text-success"></p>
-      <p id="iife" class="text-success"></p>
     </div>
 
     <script type="module">
@@ -29,13 +28,6 @@
     <script src="/dist/index.umd.cjs"></script>
     <script>
       document.querySelector("#umd").innerHTML = MyLib("umd")
-
-      delete window.MyLib // so that it won't affect iife
-    </script>
-
-    <script src="/dist/index.iife.js"></script>
-    <script>
-      document.querySelector("#iife").innerHTML = MyLib("iife")
     </script>
   </body>
 </html>

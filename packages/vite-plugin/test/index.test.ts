@@ -1,3 +1,5 @@
+/// <reference types="vitest/globals" />
+
 import pluginFoo from '../src/index.js'
 
 describe('vite-plugin-foo', () => {
