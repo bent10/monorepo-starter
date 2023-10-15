@@ -13,13 +13,14 @@
     "lib"
   ],
   "type": "module",
-  "main": "dist/index.umd.cjs",
+  "main": "dist/index.cjs",
+  "browser": "dist/index.umd.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     }
   },
@@ -29,12 +30,9 @@
     "readme.md"
   ],
   "scripts": {
-    "start": "npm run browser",
-    "browser": "vite build && vite",
-    "dev": "vite build:node --watch",
-    "build": "npm run build:node && npm run build:browser && npm run types",
-    "build:node": "vite build --ssr src/index.ts",
-    "build:browser": "vite build",
+    "start": "vite",
+    "dev": "vite build --watch",
+    "build": "vite build && npm run types",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "types": "tsc -d --emitDeclarationOnly --outDir ./dist && resolve-tspaths -o ./dist",

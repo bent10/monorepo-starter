@@ -20,14 +20,14 @@
     </div>
 
     <script type="module">
-      import foo from "./src/index.ts"
+      import foo from "./dist/index.js"
 
       document.querySelector("#esm").innerHTML = foo("esm")
     </script>
 
-    <script src="/dist/index.umd.cjs"></script>
+    <script src="./dist/index.umd.cjs"></script>
     <script>
-      document.querySelector("#umd").innerHTML = MyLib("umd")
+      document.querySelector("#umd").innerHTML = myLib("umd")
     </script>
   </body>
 </html>
