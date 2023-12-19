@@ -102,7 +102,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18 # required by semantic-release
+          node-version: 18.17.0 # required by semantic-release
       - run: npm ci
       - run: npm run lint
       - run: npm run build
