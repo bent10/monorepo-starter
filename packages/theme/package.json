@@ -52,7 +52,7 @@
     "@testing-library/jest-dom": "^6.2.0",
     "@types/bootstrap": "^5.2.10",
     "autoprefixer": "^10.4.16",
-    "jsdom": "^23.2.0",
+    "jsdom": "^24.0.0",
     "sass": "^1.69.7",
     "stylelint": "^16.1.0",
     "stylelint-config-twbs-bootstrap": "^13.0.0",
