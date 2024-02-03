@@ -30,4 +30,4 @@ $body-color: #222;
 
 ![GitHub](https://img.shields.io/github/license/bent10/monorepo-starter)
 
-A project by [Stilearning](https://stilearning.com) &copy; 2023.
+A project by [Stilearning](https://stilearning.com) &copy; 2024.
