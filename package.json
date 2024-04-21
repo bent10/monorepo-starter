@@ -29,8 +29,8 @@
     "format": "npm run format --workspaces --if-present"
   },
   "devDependencies": {
-    "doogu": "^3.2.12",
-    "vite-plugin-cachedir": "^1.1.1"
+    "doogu": "^3.2.13",
+    "vite-plugin-cachedir": "^1.2.0"
   },
   "config": {
     "commitizen": {
