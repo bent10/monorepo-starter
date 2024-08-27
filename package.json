@@ -19,6 +19,7 @@
   "workspaces": [
     "packages/*"
   ],
+  "type": "module",
   "scripts": {
     "dev": "npm run dev --workspaces --if-present",
     "build": "npm run build --workspaces --if-present",
@@ -29,7 +30,7 @@
     "format": "npm run format --workspaces --if-present"
   },
   "devDependencies": {
-    "doogu": "^3.2.13",
+    "doogu": "^4.0.2",
     "vite-plugin-cachedir": "^1.2.0"
   },
   "config": {
@@ -37,10 +38,7 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "eslintConfig": {
-    "extends": "./node_modules/doogu/eslint"
-  },
-  "prettier": "doogu/prettier.json",
+  "prettier": "doogu/prettier.config.js",
   "release": {
     "extends": "doogu/release.config.js"
   }
