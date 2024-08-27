@@ -30,7 +30,7 @@
     "format": "npm run format --workspaces --if-present"
   },
   "devDependencies": {
-    "doogu": "^4.0.2",
+    "doogu": "^4.0.3",
     "vite-plugin-cachedir": "^1.2.0"
   },
   "config": {
