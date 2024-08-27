@@ -38,7 +38,7 @@
     "preview": "vite preview --open",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "types": "tsc -d --emitDeclarationOnly --outDir ./dist && resolve-tspaths -o ./dist",
+    "types": "tsc -d --emitDeclarationOnly --outDir ./dist",
     "lint:scss": "stylelint ./scss --cache --cache-location ../../node_modules/.stylelint --rd",
     "lint:js": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
     "lint": "npm run lint:scss && npm run lint:js",
@@ -49,13 +49,13 @@
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/jest-dom": "^6.5.0",
     "@types/bootstrap": "^5.2.10",
-    "autoprefixer": "^10.4.19",
-    "jsdom": "^24.0.0",
-    "sass": "^1.75.0",
-    "stylelint": "^16.3.1",
-    "stylelint-config-twbs-bootstrap": "^14.1.0",
+    "autoprefixer": "^10.4.20",
+    "jsdom": "^25.0.0",
+    "sass": "^1.77.8",
+    "stylelint": "^16.8.2",
+    "stylelint-config-twbs-bootstrap": "^14.2.0",
     "vite-plugin-purge": "^1.0.3"
   }
 }

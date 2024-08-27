@@ -51,7 +51,7 @@ export default defineConfig({
       safelist: {
         deep: [
           // preserve specific CSS classes.
-          /(?:carousel\-item|collapsing|modal|offcanvas|popover|tooltip|active|fade|show|slide)/
+          /(?:carousel-item|collapsing|modal|offcanvas|popover|tooltip|active|fade|show|slide)/
         ]
       }
     })

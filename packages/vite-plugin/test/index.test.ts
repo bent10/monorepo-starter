@@ -1,10 +1,10 @@
 /// <reference types="vitest/globals" />
 
-import pluginFoo from '../src/index.js'
+import vitePlugin from '../src/index.js'
 
-describe('vite-plugin-foo', () => {
-  it('should call plugin foo', () => {
-    const plugin = pluginFoo()
-    expect(plugin.name).toBe('plugin-foo')
+describe('vite-plugin', () => {
+  it('should call plugin', () => {
+    const plugin = vitePlugin()
+    expect(plugin.name).toBe('vite-plugin')
   })
 })

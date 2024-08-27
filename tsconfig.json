@@ -1,7 +1,3 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
-
-  "compilerOptions": {
-    "paths": {}
-  }
+  "extends": "@tsconfig/node16/tsconfig.json"
 }
