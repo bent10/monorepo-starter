@@ -35,7 +35,7 @@ npm i
 
 > This package is pure [ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) and requires Node.js `^12.22 || ^14.17 || >=16.10.0`
 
-## Available Commands
+## Available commands
 
 Here are the available commands to manage and build the project:
 
@@ -65,26 +65,26 @@ This monorepo starter comes with the following packages:
 | [theme](packages/theme)             | Template for Bootstrap-powered theme | [v0.0.0-development](packages/theme/changelog.md)       |
 | [vite-plugin](packages/vite-plugin) | Template for Vite plugin             | [v0.0.0-development](packages/vite-plugin/changelog.md) |
 
-### Adding New Packages
+### Adding new packages
 
-Expanding the capabilities of your monorepo is straightforward. To create a new package, follow these steps:
+To expand your monorepo, you can easily create a new package by following these steps:
 
-1. Use the `npm create vite@latest` command to generate a new package based on your preferred Vite template. For instance:
+1. Run `npm create vite@latest` to generate a new package using a Vite template. For example:
 
-```bash
-# For npm 6.x
-npm create vite@latest packages/new-package --template react
+   ```bash
+   # For npm 6.x
+   npm create vite@latest packages/new-package --template react
 
-# For npm 7+ (requires extra double-dash)
-npm create vite@latest packages/new-package -- --template react
-```
+   # For npm 7+ (requires extra double-dash)
+   npm create vite@latest packages/new-package -- --template react
+   ```
 
-2. Choose the desired [project template](https://github.com/vitejs/vite/tree/main/packages/create-vite) from the available options (e.g., vanilla, react, vue, etc.).
-3. Specify the name and location for your new package when prompted; it should be within the `packages` folder.
-4. Your new Vite package will be created in the specified location. It will be organized under the designated workspace folder in your monorepo.
-5. Continue developing your Vite package as needed, taking advantage of the full Vite development environment and features.
+2. Select a [project template](https://github.com/vitejs/vite/tree/main/packages/create-vite) (e.g., vanilla, react, vue, etc.).
+3. Specify the name and location for your new package within the `packages` folder.
+4. The new Vite package will be created in your specified location and organized under the monorepo's workspace folder.
+5. **Remove any dependencies that are already included in [`doogu`](https://github.com/bent10/doogu/blob/main/package.json#L44),** such as `vite`, `vitest`, `typescript`, `prettier`, `eslint`, etc.
 
-By following these steps, you can easily extend the capabilities of your monorepo and create new packages tailored to your project's requirements.
+Once you've completed these steps, your new package is ready for development. You can now start building and using the full range of Vite features.
 
 ## Recipes
 
