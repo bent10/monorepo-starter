@@ -2,146 +2,96 @@
 
 # Release Automation
 
-This guide will help you simplify the GitHub releases process and save time by automating the release workflow when pushing changes to the repository. Before we begin, make sure you are familiar with [GitHub releases](https://help.github.com/articles/about-releases) and have a basic understanding of Git and GitHub.
+Automate your GitHub release workflow to save time. This guide covers how to set up automatic releases using GitHub Actions and semantic versioning.
 
 - [Features](#features)
 - [Workflow](#workflow)
-  - [Environment Variables](#environment-variables)
-  - [Release Configuration](#release-configuration)
-- [Dry Run](#dry-run)
-- [Related Resources](#related-resources)
+  - [Environment variables](#environment-variables)
+  - [Release configuration](#release-configuration)
+- [Dry run](#dry-run)
+- [Related resources](#related-resources)
 
 ## Features
 
-The release automation process provides the following features:
+This automation process includes:
 
-- Analyze commits with [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog).
-- Generate changelog content using [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) and update the `changelog.md` file.
-- Commit release assets to the repository.
-- Publish [GitHub releases](https://help.github.com/articles/about-releases).
-- Publish NPM packages.
+- Analyzing commits using [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog).
+- Generating and updating `changelog.md`.
+- Committing release assets.
+- Publishing GitHub releases and NPM packages.
 
 ## Workflow
 
-The release automation workflow is triggered when changes are pushed to branches such as `main`, `next`, `next-major`, `beta`, `alpha`, and `*.x`. The workflow performs the necessary tasks to build and release the project. To utilize the workflow, follow these steps:
+The workflow triggers on pushes to specific branches (`main`, `next`, `next-major`, `beta`, `alpha`, and `*.x`). To set it up:
 
-### Environment Variables
+### Environment variables
 
-Before running the workflow, ensure that the following [environment variables](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) are added to your GitHub repository:
+Add these environment variables to your GitHub repository settings:
 
-- `GH_TOKEN`: Copy and paste your [GitHub personal access token](https://github.com/settings/tokens) with the 'repo' scope into the **value** field.
-- `NPM_TOKEN`: Copy and paste your [NPM token](https://docs.npmjs.com/about-access-tokens) into the **value** field.
+- `GH_TOKEN`: Your [GitHub personal access token](https://github.com/settings/tokens) with 'repo' scope.
+- `NPM_TOKEN`: Your [NPM token](https://docs.npmjs.com/about-access-tokens).
 
-### Release Configuration
+### Release configuration
 
-After adding the required environment variables, include the following configuration in your `package.json` file:
+Add the following to your `package.json`:
 
 ```json
 {
   "release": {
-    "branches": [
-      "+([0-9])?(.{+([0-9]),x}).x",
-      "main",
-      "next",
-      "next-major",
-      {
-        "name": "beta",
-        "prerelease": true
-      },
-      {
-        "name": "alpha",
-        "prerelease": true
-      }
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/changelog",
-        {
-          "changelogFile": "changelog.md"
-        }
-      ],
-      [
-        "@semantic-release/git",
-        {
-          "assets": ["changelog.md"],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ],
-      "@semantic-release/github",
-      "@semantic-release/npm"
-    ]
+    "extends": "doogu/release.config.js"
   }
 }
 ```
 
-Additionally, create a `release.yml` file in the `.github/workflows/` folder and copy the following code into it:
+Create a `release.yml` in `.github/workflows/`:
 
 ```yml
 name: Release
 on:
-  repository_dispatch:
-    # curl -v -H "Accept: application/vnd.github.everest-preview+json" -H "Authorization: token ${GH_TOKEN}"
-    # https://api.github.com/repos/org/repo/dispatches -d '{ "event_type": "semantic-release" }'
-    types: [multi-semantic-release]
   push:
     branches:
       - main
       - next
-      - next-major
-      - beta
-      - alpha
       - '*.x'
 
 jobs:
   release:
-    name: Releasing
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 20.9.0 # required by semantic-release
+          node-version: 20.9.0
       - run: npm ci
       - run: npm run lint
       - run: npm run build
       - run: npm test
-
-      - name: Installing release dependencies
-        run: |
-          npm i -D @qiwi/multi-semantic-release @semantic-release/changelog @semantic-release/git
-      - name: Semantic release
+      - name: Install release dependencies
+        run: npm i -D @qiwi/multi-semantic-release @semantic-release/changelog @semantic-release/git
+      - name: Run Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx multi-semantic-release
+
 ```
 
-## Dry Run
+## Dry run
 
-Test release locally using the following command:
+Test the release process locally:
 
 ```bash
-# We need to install semantic release tools and dependencies first
 npm i -D @qiwi/multi-semantic-release @semantic-release/changelog @semantic-release/git
-
-# Then run the dry run
 npx multi-semantic-release --dry-run
 ```
 
-## Related Resources
+## Related resources
 
-For more detailed configuration and information, refer to the following resources:
-
-- [semantic-release](https://github.com/semantic-release/semantic-release)
 - [@qiwi/multi-semantic-release](https://github.com/qiwi/multi-semantic-release)
-- [@semantic-release/error](https://github.com/semantic-release/error)
+- [semantic-release](https://github.com/semantic-release/semantic-release)
 - [@semantic-release/commit-analyzer](https://github.com/semantic-release/commit-analyzer)
 - [@semantic-release/release-notes-generator](https://github.com/semantic-release/release-notes-generator)
 - [@semantic-release/changelog](https://github.com/semantic-release/changelog)
 - [@semantic-release/git](https://github.com/semantic-release/git)
 - [@semantic-release/github](https://github.com/semantic-release/github)
 - [@semantic-release/npm](https://github.com/semantic-release/npm)
-
-We hope this documentation helps you streamline the release process using GitHub Actions and semantic versioning. If you have any further questions or need assistance, please don't hesitate to reach out.

@@ -1,25 +1,19 @@
-# MyLib
+# Foo
 
-Description for `js-lib`.
+Description for `foo`.
 
 ## Install
 
 ```bash
-npm i js-lib
-```
-
-Or
-
-```bash
-yarn add js-lib
+npm i foo
 ```
 
 ## Usage
 
 ```js
-import jslib from 'js-lib'
+import foo from 'foo'
 
-const output = jslib('bar')
+const output = foo('bar')
 ```
 
 For a more comprehensive understanding of the Browser implementation, please refer to the file `index.html`, which contains the necessary code and configurations.

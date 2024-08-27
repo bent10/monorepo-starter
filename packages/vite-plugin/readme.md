@@ -1,17 +1,11 @@
-# Vite Plugin Foo
+# vite-plugin-foo
 
 Description for `vite-plugin-foo`.
 
 ## Install
 
 ```bash
-npm i vite-plugin-foo
-```
-
-Or
-
-```bash
-yarn add vite-plugin-foo
+npm i -D vite-plugin-foo
 ```
 
 ## Usage

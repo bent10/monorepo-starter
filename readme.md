@@ -4,28 +4,34 @@
 
 <!-- [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bent10/monorepo-starter/Release?style=flat-square)](https://github.com/bent10/monorepo-starter/actions/workflows/release.yml) -->
 
-**Monorepo Starter** is a feature-rich template for creating monorepo projects using native NPM workspaces. It offers a set of powerful features to streamline your development workflow.
+A starter template for a monorepo using NPM workspaces.
 
 ## Features
 
-- **Fast and Lightweight**: Utilizes native NPM workspaces for optimal performance without unnecessary bloat.
-- **Automated Releases**: Automatically triggers GitHub releases and NPM publishing for each package after a `git push`.
-- **Changelog Updates**: Automatically updates changelogs for each package after a `git push`.
-- **Dependency Management**: Effortlessly manage and update dependencies within the monorepo.
-- **Multilingual Support**: Develop packages with mixed languages within a single repository.
-- **Modern Code**: Embrace the latest syntax and coding practices for increased productivity.
-- **Output Formats**: Provides UMD, CommonJS, and ESM output formats for JavaScript packages.
-- **Live Playground**: Get a live playground environment ready to experiment with your code.
+- **Quick start:** Efficient starting point for Web and Node.js projects
+- **Lightweight**: Only native NPM workspaces, for speed and simplicity
+- **Multilingual support**: Supports multiple programming languages in a single repository
+- **Modern syntax:** Supports the latest language features
+- **Flexible output:** Output in any format
+- **Automatic updates:** Keeps your dependencies up to date. See [recipes](#recipes) for more info
+- **Automated releases:** Automatically handles GitHub releases, NPM publishing, and changelog updates. Check out [recipes](#recipes) for details
+- **Live Playground**: Includes a live environment for testing code
 
-## Install
+## Installation
 
-To start a new project using Monorepo Starter, you can either **click the "Use this template"** button on GitHub or manually clone the repository. After cloning, navigate to the project directory and install the required dependencies using the following command:
+To start a new project with this template, use one of the following methods:
+
+### Clone from GitHub
+
+Click the "Use this template" button above or clone the repository. Then, install dependencies:
 
 ```bash
 npm i
 ```
 
-Alternatively, you can use the `npx degit` command to clone the template into a new project directory and install the dependencies:
+### Use `npx degit`
+
+Clone the template and install dependencies:
 
 ```bash
 npx degit "bent10/monorepo-starter" my-project
@@ -33,67 +39,58 @@ cd my-project
 npm i
 ```
 
-> This package is pure [ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) and requires Node.js `^12.22 || ^14.17 || >=16.10.0`
+## Commands
 
-## Available commands
+- `npm run dev -w pkgName`: Starts the dev server for a specific package
+- `npm run build`: Builds the project and checks types
+- `npm test`: Runs tests with Vitest
+- `npm run coverage`: Generates test coverage reports
+- `npm run types`: Generates TypeScript declaration files
+- `npm run lint`: Checks types and lints the project
+- `npm run format`: Formats code using Prettier
 
-Here are the available commands to manage and build the project:
-
-- `npm start -w pkgName`: Starts the development server and watches for changes for a specific package.
-- `npm run dev`: Builds the project using Vite and watches for changes with auto-reloading.
-- `npm run build`: Builds the project using Vite for production.
-- `npm test`: Runs tests with Vitest and displays a user interface.
-- `npm run coverage`: Runs tests with Vitest and generates a coverage report.
-- `npm run types`: Generates TypeScript declaration files and resolves TypeScript paths.
-- `npm run lint`: Lints the project using ESLint and TypeScript, checking for syntax and code quality issues.
-- `npm run format`: Formats the project files using Prettier.
-
-Please note that you can add the `-w` or `--workspace` flag to target one or more specific package(s) when using the above commands:
+Use these commands to manage your development workflow. Add `-w` or `--workspace` to target specific packages:
 
 ```bash
-npm test -w pkgName
 npm run build -w pkg1 -w pkg2 ...
 ```
 
 ## Packages
 
-This monorepo starter comes with the following packages:
-
-| Package                             | Description                          | Version (click for changelog)                           |
-| :---------------------------------- | :----------------------------------- | :------------------------------------------------------ |
-| [js-lib](packages/js-lib)           | Template for shared utilities        | [v0.0.0-development](packages/js-lib/changelog.md)      |
-| [theme](packages/theme)             | Template for Bootstrap-powered theme | [v0.0.0-development](packages/theme/changelog.md)       |
-| [vite-plugin](packages/vite-plugin) | Template for Vite plugin             | [v0.0.0-development](packages/vite-plugin/changelog.md) |
+| Package                             | Description             | Version                                                 |
+| :---------------------------------- | :---------------------- | :------------------------------------------------------ |
+| [js-lib](packages/js-lib)           | JavaScript library      | [v0.0.0-development](packages/js-lib/changelog.md)      |
+| [theme](packages/theme)             | Bootstrap-powered theme | [v0.0.0-development](packages/theme/changelog.md)       |
+| [vite-plugin](packages/vite-plugin) | Vite plugin             | [v0.0.0-development](packages/vite-plugin/changelog.md) |
 
 ### Adding new packages
 
-To expand your monorepo, you can easily create a new package by following these steps:
+To add a new package:
 
-1. Run `npm create vite@latest` to generate a new package using a Vite template. For example:
+1. Run the following command with your desired template:
 
    ```bash
    # For npm 6.x
    npm create vite@latest packages/new-package --template react
 
-   # For npm 7+ (requires extra double-dash)
+   # For npm 7+
    npm create vite@latest packages/new-package -- --template react
    ```
 
-2. Select a [project template](https://github.com/vitejs/vite/tree/main/packages/create-vite) (e.g., vanilla, react, vue, etc.).
-3. Specify the name and location for your new package within the `packages` folder.
-4. The new Vite package will be created in your specified location and organized under the monorepo's workspace folder.
-5. **Remove any dependencies that are already included in [`doogu`](https://github.com/bent10/doogu/blob/main/package.json#L44),** such as `vite`, `vitest`, `typescript`, `prettier`, `eslint`, etc.
+   Check [available templates](https://github.com/vitejs/vite/tree/main/packages/create-vite)
 
-Once you've completed these steps, your new package is ready for development. You can now start building and using the full range of Vite features.
+2. Open `packages/new-package/package.json` and remove dependencies already included in [`doogu`](https://github.com/bent10/doogu/blob/main/package.json#L44) (e.g., `vite`, `vitest`, `typescript`, `prettier`, `eslint`).
+
+Your new package is now ready for development with Vite features.
 
 ## Recipes
 
-- [Automated dependency updates](.github/recipes/setup-renovate.md) – Explains how to set up automated dependency updates using Renovate.
-- [Release automation](.github/recipes/release-automation.md) - Guides you on automating the release process of your project.
+- [Automated dependency updates](.github/recipes/setup-renovate.md) – Set up automated updates with Renovate
+- [Release automation](.github/recipes/release-automation.md) – Automate your project's release process
 
 ## Related
 
-- [module-starter](https://github.com/bent10/module-starter) – A bare-bones template designed for modern web projects
+- [module-starter](https://github.com/bent10/module-starter) – A minimalist template for modern web development
 - [doogu](https://github.com/bent10/doogu) – A wrapper around modern JavaScript tools
 
 ## Contributing
