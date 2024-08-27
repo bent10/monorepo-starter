@@ -1,15 +1,13 @@
 /// <reference types="vitest" />
 
-import { join, resolve } from 'node:path'
+import { resolve } from 'node:path'
 import autoprefixer from 'autoprefixer'
 import { defineConfig } from 'vite'
 import cacheDir from 'vite-plugin-cachedir'
 import purgeCSS from 'vite-plugin-purge'
 
 const nodejsPath = (dir: string) => {
-  const root = resolve(__dirname, '../../node_modules')
-
-  return join(root, dir)
+  return resolve(__dirname, '../../node_modules', dir)
 }
 
 export default defineConfig({
