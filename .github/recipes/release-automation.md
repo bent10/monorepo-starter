@@ -37,7 +37,7 @@ Add the following to your `package.json`:
 
 ```json
 {
-  "release": {
+  "multi-release": {
     "extends": "doogu/release.config.js"
   }
 }
