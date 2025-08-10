@@ -55,7 +55,7 @@
     "jsdom": "^26.0.0",
     "sass": "^1.80.5",
     "stylelint": "^16.10.0",
-    "stylelint-config-twbs-bootstrap": "^15.1.0",
+    "stylelint-config-twbs-bootstrap": "^16.0.0",
     "vite-plugin-purge": "^1.0.3"
   }
 }
