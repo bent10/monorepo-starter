@@ -54,7 +54,7 @@
     "autoprefixer": "^10.4.20",
     "jsdom": "^26.0.0",
     "sass": "^1.80.5",
-    "stylelint": "^16.10.0",
+    "stylelint": "^17.0.0",
     "stylelint-config-twbs-bootstrap": "^16.0.0",
     "vite-plugin-purge": "^1.0.3"
   }
